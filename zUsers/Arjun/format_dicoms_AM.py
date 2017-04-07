@@ -33,7 +33,7 @@ if __name__ == "__main__":
 
     dir_list = os.listdir('.')
     print(dir_list)
-    dir_list.remove('.DS_Store')
+    dir_list.remove('.DS_Store') # we never care about this
     print(dir_list)
 
     if len(dir_list) == 1: # there is only one folder - probably Amrit_Alex (or whatever the protocol was named)
@@ -54,7 +54,7 @@ if __name__ == "__main__":
             else:
                 other_list.append(file)
 
-        epi_list.sort() # shouldn't be necessary, but this will guarantee things are in order
+        epi_list.sort() # this will guarantee order (lexicographic = chronological due to _2, _3 etc) TODO check this, what about _11 etc?
         gems_list.sort()
         print(epi_list, gems_list, other_list)
 
@@ -71,16 +71,3 @@ if __name__ == "__main__":
         for k, otherfolder in enumerate(other_list):
             print('Moving', otherfolder)
             shutil.copytree(otherfolder, '../%s'%otherfolder)
-
-    """
-    dir_list = np.array(os.listdir('.')) 
-    #In order to not include '.DS_store'
-    epi_list = []
-    gems_list = []
-    for file in dir_list:
-        if file.startswith('epi'):
-            epi_list.append(file)
-        elif file.startswith('gems'):
-            gems_list.append(file)
-    dir_list = epi_list + gems_list
-    """
