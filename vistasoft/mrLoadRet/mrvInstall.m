@@ -1,3 +1,4 @@
+
 function mrvInstall
 %Install libraries and framework for VISTASOFT mex-files.
 %
@@ -112,6 +113,8 @@ switch(computer)
 
     case 'MACI'
         disp('Mac OSX on x86');
+    case 'MACI64'
+        disp('Mac OSX on x86_64-bit');
     case 'GLNX86'
         disp('GNU Linux on x86')
     case 'GLNXA64'
